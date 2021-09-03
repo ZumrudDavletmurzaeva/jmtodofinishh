@@ -41,6 +41,8 @@ export default class App extends Component {
       // обновление объекта
       const oldItem = todoData[idx];
       const newItem = { ...oldItem, isDone: !oldItem.isDone };
+
+      
       const before = todoData.slice(0, idx);
       const after = todoData.slice(idx + 1);
       const newArray = [...before, newItem, ...after];
@@ -81,6 +83,8 @@ export default class App extends Component {
     });
   };
 
+
+
  
   createTodoItem(description, isDone = false, isEditing = false, id = this.maxId++, createdDate = new Date()) {
     return {
@@ -92,6 +96,7 @@ export default class App extends Component {
     };
   };
 
+ 
 
   filter(items, filter) {
     switch (filter) {
@@ -126,6 +131,7 @@ export default class App extends Component {
               todos={newArrItems}
               onDeleted={this.deleteItem}
               onToggleDone={this.onToggleDone}
+              filterType={filter}
             />
             <Footer
               todocount={todoCount}

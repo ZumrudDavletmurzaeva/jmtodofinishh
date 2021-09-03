@@ -20,9 +20,9 @@ export default class NewTaskForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-
     const {onItemAdded} = this.props
     const {description} = this.state
+    if (description.trim() === '') return;
     onItemAdded(description)
     this.setState({
       description: "",
@@ -38,7 +38,6 @@ export default class NewTaskForm extends Component {
           className="new-todo"
           placeholder={searchText}
           onChange={this.onLabelChange}
-    
           value={description}
         />
       </form>

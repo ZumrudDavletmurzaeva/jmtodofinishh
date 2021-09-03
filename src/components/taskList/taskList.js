@@ -10,7 +10,11 @@ const TaskList = ({ todos, onDeleted, onToggleDone }) => {
       <li key={id}>
         <Task
           {...itemProps}
+
+
           onDeleted={() => onDeleted(id)}
+
+          
           onToggleDone={() => onToggleDone(id)}
         />
       </li>

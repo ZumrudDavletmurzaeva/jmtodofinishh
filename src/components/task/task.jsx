@@ -11,11 +11,18 @@ export default class Task extends Component {
     onDeleted: PropTypes.func.isRequired, 
     description: PropTypes.string.isRequired,
     isDone: PropTypes.bool.isRequired,
-    createdDate: PropTypes.instanceOf(Date).isRequired
+    createdDate: PropTypes.instanceOf(Date).isRequired,
+
   };
 
+
+  
   render() {
     const { description, onDeleted, onToggleDone, isDone, createdDate} = this.props;
+    
+
+
+
 
     let className = "task-label";
     if (isDone) {
@@ -23,10 +30,10 @@ export default class Task extends Component {
     };
 
     return (
-      <div className={className}>
-        <input className="toggle" type="checkbox" />
+      <div className={className} >
+        <input className="toggle" type="checkbox"  onClick={onToggleDone} checked={isDone}   />
         <label>
-          <span className="description"  onClick={onToggleDone}  aria-hidden="true">
+          <span className="description"  aria-hidden="true">
             {" "}
             {description}{" "}
           </span>
