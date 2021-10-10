@@ -14,7 +14,7 @@ const TaskList = ({ todos, onDeleted, onToggleDone }) => {
 
           onDeleted={() => onDeleted(id)}
 
-          
+       
           onToggleDone={() => onToggleDone(id)}
         />
       </li>
@@ -27,7 +27,9 @@ const TaskList = ({ todos, onDeleted, onToggleDone }) => {
 TaskList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onDeleted: PropTypes.func.isRequired,
-  onToggleDone: PropTypes.func.isRequired
+  onToggleDone: PropTypes.func.isRequired,
+  pause: PropTypes.func.isRequired,
+  play: PropTypes.func.isRequired
   
 };
 

@@ -10,36 +10,54 @@ export default class NewTaskForm extends Component {
   
   state = {
     description: "",
+    min:'',
+    sec:''
   };
 
-  onLabelChange = (event) => {
+  onLabelChange = (event, property) => {
     this.setState({
-      description: event.target.value,
+       [property]: event.target.value,
+     
     });
   };
 
   onSubmit = (event) => {
     event.preventDefault();
     const {onItemAdded} = this.props
-    const {description} = this.state
+    const {description, min, sec} = this.state
     if (description.trim() === '') return;
-    onItemAdded(description)
+    onItemAdded(description, min, sec)
     this.setState({
       description: "",
+      min:'',
+      sec: '',
     });
   };
 
   render() {
-    const {description} = this.state
+    const {description, min, sec} = this.state
     const searchText = "What needs to be done?";
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="new-todo-form">
         <input
           className="new-todo"
           placeholder={searchText}
-          onChange={this.onLabelChange}
+          onChange={(event) => this.onLabelChange(event, 'description')}
           value={description}
         />
+        <input
+          className="new-todo-form__timer"
+          placeholder="Min"
+          value={min}
+          onChange={(event) => this.onLabelChange(event, 'min')}
+        />
+        <input
+          className="new-todo-form__timer"
+          placeholder="Sec"
+          value={sec}
+          onChange={(event) => this.onLabelChange (event, 'sec')}
+        />
+             <input type="submit" className="submit-button" />
       </form>
     );
   }

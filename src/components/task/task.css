@@ -75,3 +75,17 @@ button::-moz-focus-inner {
   cursor: pointer;
   user-select: none;
 }
+.timer{
+	margin-left: 1.25rem;
+	line-height: 20px;
+	font-size: 18px;
+  cursor: pointer;
+	user-select: none;
+	color:grey
+}
+.created{
+	margin-left: 1.25rem;
+font-size: 15px;
+	cursor: pointer;
+	color:grey
+}
